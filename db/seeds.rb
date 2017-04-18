@@ -18,17 +18,17 @@ require "pry"
 # def initialmethod
 #     require 'csv'
 
-csv_text = File.read('./movie_metadata.csv')
-
-if ! csv_text.valid_encoding?
-  csv_text = csv_text.encode("UTF-16be", :invalid=>:replace, :replace=>"?").encode('UTF-8')
-end
-
-parsed_text = CSV.parse(csv_text)
-
-parsed_text.each do |row|
-      @db_connection.execute("INSERT INTO Directors (director_name) VALUES (?)", row[0])
-end
-binding.pry
-
+# csv_text = File.read('./movie_metadata.csv')
+#
+# if ! csv_text.valid_encoding?
+#   csv_text = csv_text.encode("UTF-16be", :invalid=>:replace, :replace=>"?").encode('UTF-8')
 # end
+#
+# parsed_text = CSV.parse(csv_text)
+#
+# parsed_text.each do |row|
+#       @db_connection.execute("INSERT INTO Directors (director_name) VALUES (?)", row[0])
+# end
+# binding.pry
+#
+# # end

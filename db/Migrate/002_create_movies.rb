@@ -1,4 +1,4 @@
-class Movie < ActiveRecord::Migration
+class CreateMovies < ActiveRecord::Migration
   def change
     create_table :movies do |t|
       t.string :title
@@ -7,12 +7,6 @@ class Movie < ActiveRecord::Migration
       t.string :plot_keywords
       t.integer :score
       t.string :imdb_link
-      t.string :genre
-      t.integer :actor1_id
-      t.integer :actor2_id
-      t.interger :actor3_id
-      t.integer :director_id
-      t.integer :genre_id
     end
   end
 end
