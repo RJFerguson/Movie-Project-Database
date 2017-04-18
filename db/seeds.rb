@@ -15,19 +15,14 @@ if ! csv_text.valid_encoding?
 end
 
 parsed_text = CSV.parse(csv_text)
+parsed_text.shift
+parsed_text
 
-i = 1 
   parsed_text.each do |column|
-    if i != 1 
       Director.create(:name=>column[0])
       Movie.create(:duration=>column[1],:gross=>column[3], :title=>column[6], :plot_keywords => column[8], :imdb_link => column[9], :score => column[11])
       Actor.create(:name=>column[2])
       Actor.create(:name=>column[5])
       Actor.create(:name=>column[7])
       Genre.create(:name=>column[4])
-    else 
-      i += 1 
-    end 
   end
-
-
