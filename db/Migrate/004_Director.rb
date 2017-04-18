@@ -1,6 +1,6 @@
 class Director < ActiveRecord::Migration
   def change
-    create_table :Directors do |t|
+    create_table :directors do |t|
       t.string :name
     end
   end
