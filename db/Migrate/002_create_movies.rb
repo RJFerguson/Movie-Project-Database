@@ -5,7 +5,7 @@ class CreateMovies < ActiveRecord::Migration
       t.integer :duration
       t.integer :gross
       t.string :plot_keywords
-      t.integer :score
+      t.float :score
       t.string :imdb_link
     end
   end

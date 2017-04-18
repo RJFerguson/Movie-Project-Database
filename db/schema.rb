@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 4) do
     t.integer "duration"
     t.integer "gross"
     t.string  "plot_keywords"
-    t.integer "score"
+    t.float   "score"
     t.string  "imdb_link"
   end
 
