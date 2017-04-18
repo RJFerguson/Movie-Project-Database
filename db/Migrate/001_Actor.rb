@@ -1,6 +1,6 @@
 class Actor < ActiveRecord::Migration
   def change
-    create_table :Actors do |t|
+    create_table :actors do |t|
       t.string :name
     end
   end
