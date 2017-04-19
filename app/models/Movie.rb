@@ -1,5 +1,7 @@
 class Movie < ActiveRecord::Base
-  belongs_to :actors
-  belongs_to :directors
-  belongs_to :genres
+  belongs_to :director
+  belongs_to :genre
+  has_many :appearances 
+  has_many :actors, through: :appearances
+
 end

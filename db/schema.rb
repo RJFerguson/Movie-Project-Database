@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 5) do
 
   create_table "actors", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "appearances", force: :cascade do |t|
+    t.integer "actor_id"
+    t.integer "movie_id"
   end
 
   create_table "directors", force: :cascade do |t|
@@ -32,7 +37,7 @@ ActiveRecord::Schema.define(version: 4) do
     t.float   "score"
     t.string  "imdb_link"
     t.integer "director_id"
-    t.integer "actor_id"
+    t.integer "genre_id"
   end
 
 end

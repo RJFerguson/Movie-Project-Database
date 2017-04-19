@@ -8,8 +8,7 @@ class CreateMovies < ActiveRecord::Migration
       t.float :score
       t.string :imdb_link
       t.integer :director_id
-      t.integer :actor_id
-      # t.integer :genre_id
+      t.integer :genre_id
     end
   end
 end
