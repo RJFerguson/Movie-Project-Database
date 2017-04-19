@@ -22,6 +22,13 @@ parsed_text.each do |column|
   actor = Actor.find_or_create_by(:name=>column[2])
   actor2 = Actor.find_or_create_by(:name=>column[5])
   actor3 = Actor.find_or_create_by(:name=>column[7])
-  genre = Genre.find_or_create_by(:name=>column[4].split('|').first)
-  Movie.create(:duration=>column[1],:gross=>column[3], :title=>column[6], :plot_keywords => column[8], :imdb_link => column[9], :score => column[11], :genre_id => genre.id, :actor_ids => [actor.id,actor2.id,actor3.id], :director_id => director.id)
+  col = column[4].split('|')
+  final = col.collect do |genre|
+    Genre.find_or_create_by(:name => genre)
+  end
+  final = final.map do |genre|
+    genre.id
+  end
+  # genre = Genre.find_or_create_by(:name=>)
+  Movie.create(:duration=>column[1],:gross=>column[3], :title=>column[6], :plot_keywords => column[8], :imdb_link => column[9], :score => column[11], :genre_ids => final, :actor_ids => [actor.id,actor2.id,actor3.id], :director_id => director.id)
 end
