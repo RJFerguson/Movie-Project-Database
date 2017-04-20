@@ -4,9 +4,9 @@ class IndividualMovie
     attr_accessor :movie, :info
 
      def initialize 
-        self.get_movie_from_user
-        self.check_movie_title(movie)
-        self.get_user_interest
+        @movie = self.get_movie_from_user
+        clean_display(movie)
+        redo_search? 
     end 
 
     def get_movie_from_user
@@ -14,13 +14,6 @@ class IndividualMovie
         movie = gets.chomp
         check_movie_title(movie)
     end 
-
-    def get_user_interest
-        puts "Ok, What information would you like to see?"
-        puts "Options: Please enter the option number\n 1. Title, 2. Duration, 3. Gross\n 4. Plot Keywords, 5. Score, 6. IMDB Link\n 7. Director, 8. Genre 9. all"
-        user_interest = gets.chomp 
-    end 
- 
 
     def check_movie_title(movie)
         movie = Movie.find_by(title: movie)
@@ -32,16 +25,22 @@ class IndividualMovie
         end 
         movie 
     end 
+
+    def clean_display(movie) 
+        puts "Title: #{movie.title} | Duration: #{movie.duration} Minutes\nDirector: #{movie.director.name} | Main Actors: #{movie.actors.collect{|x|x.name}.join(", ")}\nUS Gross: #{movie.gross} Dollars | Plot Keywords: #{movie.plot_keywords.split("|").join(", ")}\nIMDB Score: #{movie.score} | IMDB Link: #{movie.imdb_link}"
+    end
+
+    def redo_search?
+        puts "*" * 30 
+        puts "Great! Would you like to look at another Movie? (Y/n)"
+        user_input = gets.chomp 
+
+        if user_input == "Y" || user_input == "y" 
+            IndividualMovie.new()
+        else 
+            puts "Goodbye!"
+        end 
+    end  
 end 
 
-def get_movie_from_user
-    puts "What movie would you like to look at?"
-    user_query = gets.chomp
-end
-
-def get_user_interest
-    puts "Ok, What information would you like to see?"
-    puts "Options: Please enter the option number\n 1. Title, 2. Duration, 3. Gross\n 4. Plot Keywords, 5. Score, 6. IMDB Link\n 7. Director, 8. Genre 9. Special"
-    user_interest = gets.chomp
-end 
 
