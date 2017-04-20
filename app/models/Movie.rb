@@ -7,14 +7,7 @@ class Movie < ActiveRecord::Base
 
 
   def self.average_score
-    sum = 0
-    counter = 0
-    arr = self.all
-    arr.each do |movie|
-      sum+= movie.score
-      counter+=1
-    end
-    sum / counter
+    average(:score).to_f
   end
 
   def self.good_movies
@@ -23,6 +16,14 @@ class Movie < ActiveRecord::Base
 
   def self.bad_movies
     where("score < 6.0")
+  end
+
+  def self.x_best_movies (num)
+    order(score: :desc).limit(num)
+  end
+
+  def self.x_worst_movies (num)
+    order(score: :asc).limit(num)
   end
 
   def self.shorter_than (length)
@@ -50,7 +51,6 @@ class Movie < ActiveRecord::Base
   end
 
 
-
   def self.with_genre (genre)
     all = self.all
     ans = []
@@ -62,8 +62,7 @@ class Movie < ActiveRecord::Base
       end
   end
     ans
-end
-
+  end
 
   def self.cast_and_crew (title)
       ans = "Actors: "
@@ -101,6 +100,7 @@ end
       false
     end
   end
+
 
 
 end
