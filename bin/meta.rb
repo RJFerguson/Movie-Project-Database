@@ -1,15 +1,25 @@
+
 class Meta_methods
 
   attr_accessor :movie
 
   def initialize
     puts "Here's the place to find out information about movies in general"
-    show_methods
+    puts show_methods
     puts "Choose what information you'd like to access, (method,parameters needed)"
     choice = gets.chomp.downcase
-    puts "Enter parameters"
-    params = gets.chomp.downcase
-    puts Movie.send(choice.to_sym, params)
+    if choice.include?('1')
+      puts "Enter parameters"
+      params = gets.chomp.downcase
+      puts Movie.send(choice.to_sym, params)
+    else
+      puts Movie.send(choice.to_sym)
+    end
+    puts "Would you like to run another query?"
+    resp = gets.chomp.downcase
+    if resp == "yes"
+    Meta_methods.new()
+    end
   end
 
   def show_methods
@@ -23,7 +33,7 @@ class Meta_methods
         ans << method
       end
     end
-    puts ans
+    ans
   end
 
 end
