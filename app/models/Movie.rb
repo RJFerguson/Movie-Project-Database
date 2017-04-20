@@ -16,6 +16,16 @@ class Movie < ActiveRecord::Base
     sum / counter
   end
 
+  def self.shorter_than (length)
+    movies = []
+    self.all.each do |movie|
+      if movie.duration < length
+      movies << movie
+      end
+    end
+    movies
+  end
+
   def self.average_score_by_director(director)
     director.downcase!
     sum = 0
@@ -28,6 +38,40 @@ class Movie < ActiveRecord::Base
       end
     end
     sum / counter
+  end
+
+
+
+  def self.movies_with_genre (genre)
+    all = self.all
+    movies = []
+    all.each do |movie|
+      genres = movie.genres.collect do |genre|
+        genre.name.downcase
+      end
+      if genres
+        movies << movie
+      end
+    end
+    movies
+  end
+  #   sum = 0
+  #   movies.each do |movie|
+  #     sum += movie.score
+  #   end
+  #   sum /= movies.length
+  # end
+
+  def self.cast_and_crew (title)
+      ans = "Actors: "
+      movie = self.find_by(title: title)
+        if movie == nil
+          return "No Matches"
+        end
+      movie.actors.each do |actor|
+        ans += "#{actor.name} "
+      end
+      ans += "Director: " + movie.director.name
   end
 
 
