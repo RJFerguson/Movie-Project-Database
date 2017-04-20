@@ -3,37 +3,28 @@ require_relative 'meta.rb'
 require_relative 'individual.rb'
 require 'pry'
 
-def greet 
+def greet
     puts "Hello! Welcome to out Command Line Movie Database"
     puts "In this application you can look at over 5000 movies and their stats"
     puts ""
-end  
+end
 
-def meta_or_individual 
+def meta_or_individual
     puts "Would you like to look at metadata or an individual movie?"
     puts "Please choose a number: \n 1. Metadata 2. Individual"
-    
+
     check = gets.chomp
     if check == '1' || check == '2'
-        return check.to_i 
-    else 
+        return check.to_i
+    else
         meta_or_individual
-    end  
-end 
+    end
+end
 
-greet 
+greet
 
-if meta_or_individual == 1 
-    meta_methods 
-else 
+if meta_or_individual == 1
+    Meta_methods.new()
+else
     IndividualMovie.new()
-end 
-
-
-
-
-
-
-
-
-
+end
