@@ -26,7 +26,7 @@ greet
 user_response = meta_or_individual
 
 if user_response == 1
-    meta_methods
+    Meta_methods.new()
 elsif user_response == 2
     IndividualMovie.new()
 else
