@@ -5,6 +5,7 @@ class Movie < ActiveRecord::Base
   has_many :genres, through: :moviegenres
   has_many :actors, through: :appearances
 
+
   def self.average_score(arr)
     sum = 0
     counter = 0
@@ -87,7 +88,12 @@ class Movie < ActiveRecord::Base
   end
 
 
-
-
+ def self.movies_above_score(num) 
+    arr = [] 
+    self.where("score > #{num}").collect do |x|
+      arr << [x.title, x.score] 
+    end  
+    return arr 
+  end
 
 end
