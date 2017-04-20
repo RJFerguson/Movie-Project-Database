@@ -1,5 +1,3 @@
-
-<<<<<<< HEAD
 class Meta_methods
 
   attr_accessor :movie

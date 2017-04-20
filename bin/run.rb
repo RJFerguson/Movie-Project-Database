@@ -2,7 +2,6 @@ require_relative '../config/environment'
 require_relative 'meta.rb'
 require_relative 'individual.rb'
 require_relative 'game.rb'
-require 'pry'
 
 def greet
     puts "Hello! Welcome to out Command Line Movie Database"
@@ -26,7 +25,7 @@ greet
 user_response = meta_or_individual
 
 if user_response == 1
-    meta_methods
+    Meta_methods.new()
 elsif user_response == 2
     IndividualMovie.new()
 else

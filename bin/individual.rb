@@ -1,5 +1,3 @@
-
-require 'pry'
 class IndividualMovie
     attr_accessor :movie, :info
 
