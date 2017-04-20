@@ -3,8 +3,7 @@ class IndividualMovie
 
      def initialize 
         @movie = self.get_movie_from_user
-        clean_display(movie)
-        redo_search? 
+        clean_display(movie) 
     end 
 
     def get_movie_from_user
@@ -21,11 +20,11 @@ class IndividualMovie
         else 
             return movie 
         end 
-        movie 
     end 
 
     def clean_display(movie) 
         puts "Title: #{movie.title} | Duration: #{movie.duration} Minutes\nDirector: #{movie.director.name} | Main Actors: #{movie.actors.collect{|x|x.name}.join(", ")}\nUS Gross: #{movie.gross} Dollars | Plot Keywords: #{movie.plot_keywords.split("|").join(", ")}\nIMDB Score: #{movie.score} | IMDB Link: #{movie.imdb_link}"
+        redo_search? 
     end
 
     def redo_search?

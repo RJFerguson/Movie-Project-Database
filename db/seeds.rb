@@ -8,7 +8,7 @@ Movie.delete_all
 Actor.delete_all
 Genre.delete_all
 
-csv_text = File.read('./test_data.csv', :headers => true)
+csv_text = File.read('./movie_metadata_clean.csv', :headers => true)
 
 if ! csv_text.valid_encoding?
   csv_text = csv_text.encode("UTF-16be", :invalid=>:replace, :replace=>"?").encode('UTF-8')
