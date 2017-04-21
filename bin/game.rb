@@ -13,7 +13,7 @@ class DecisionTreeGame
   end 
 
   def text_parser 
-    csv_text = File.read('./decision_test.csv', :headers => true)
+    csv_text = File.read('./test_data.csv', :headers => true)
     if ! csv_text.valid_encoding?
       csv_text = csv_text.encode("UTF-16be", :invalid=>:replace, :replace=>"?").encode('UTF-8')
     end
@@ -24,6 +24,7 @@ class DecisionTreeGame
 
   def seed_training(text) 
     text.each do |row| 
+
       @training << [row[0],row[2],row[5],row[7],row[11]]
     end
   end 
