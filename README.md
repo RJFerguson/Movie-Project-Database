@@ -7,10 +7,8 @@ Movie Project Database is a local database with nearly 5000 movies and their sta
 
 
 # META
-
   - Look at statistics from the whole database
   - Look at different whole database facts
-
 
 # Individual
   - Get information from the local database 

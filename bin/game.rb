@@ -13,7 +13,7 @@ class DecisionTreeGame
   end 
 
   def text_parser 
-    csv_text = File.read('./test_data.csv', :headers => true)
+    csv_text = File.read('./decision_test.csv', :headers => true)
     if ! csv_text.valid_encoding?
       csv_text = csv_text.encode("UTF-16be", :invalid=>:replace, :replace=>"?").encode('UTF-8')
     end
@@ -42,7 +42,6 @@ class DecisionTreeGame
     @test 
   end 
 
-
   def predic_training 
     attributes = ['director_name','actor_2_name','actor_1_name','actor_3_name']
     @dec_tree = DecisionTree::ID3Tree.new(attributes, @training, 'rating', :discrete)
@@ -65,5 +64,4 @@ class DecisionTreeGame
       puts "OK...Goodbye!"
     end 
   end 
-
 end 
