@@ -3,6 +3,7 @@ require "sqlite3"
 require "pry"
 
 
+
 Director.delete_all
 Movie.delete_all
 Actor.delete_all

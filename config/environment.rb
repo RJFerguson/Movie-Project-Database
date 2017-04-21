@@ -1,4 +1,13 @@
 require 'bundler'
+# require 'sqlite3'
+# require 'active_record'
+# require 'rake'
+# require 'rest-client'
+# require 'json'
+# require 'pry'
+
+# require 'bundler/setup'z
+# require "sinatra/activerecord"
 Bundler.require
 
 Dir[File.join(File.dirname(__FILE__), "../app/models", "*.rb")].each {|f| require f}

@@ -5,9 +5,18 @@ require_relative 'game.rb'
 require_relative 'search.rb'
 
 def greet
-    puts "Hello! Welcome to out Command Line Movie Database"
-    puts "In this application you can look at over 5000 movies and their stats"
-    puts ""
+    first_string = "Hello! Welcome to our Command Line Movie Database"
+    first_string.each_char do |x|
+        print x
+        sleep(0.02)
+    end 
+    puts "\n"
+    second_string = "In this application you can look at over 5000 movies and their stats"
+    second_string.each_char do |x|
+        print x
+        sleep(0.02)
+    end 
+    puts "\n"
 end
 
 def meta_or_individual

@@ -7,7 +7,12 @@ class IndividualMovie
     end 
 
     def get_movie_from_user
-        puts "What movie would you like to look at?"
+        first_string = "What movie would you like to look at?"
+        first_string.each_char do |x|
+            print x
+            sleep(0.02)
+        end 
+        puts "\n"
         movie = gets.chomp
         check_movie_title(movie)
     end 

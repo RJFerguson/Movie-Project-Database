@@ -1,7 +1,12 @@
 class Searchomdb
     
      def initialize
-        puts "Welcome to search! You can search the OMDB database and get info based on what you type."
+        first_string = "Welcome to search! You can search the OMDB database and get info based on what you type."
+        first_string.each_char do |x|
+            print x
+            sleep(0.02)
+        end 
+        puts "\n"
         ask_for_movie 
      end 
 
